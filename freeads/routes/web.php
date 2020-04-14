@@ -16,3 +16,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/', 'IndexController@showIndex');
+Route::get('/', 'InscriptionController@formulaire');
+Route::post('/inscription', 'InscriptionController@traitement');
+Route::get('/', 'ConnexionController@formulaire');
+Route::post('/connexion', 'ConnexionController@traitement');
+
+
+// Route::get('/inscription', function () {
+//     return view('inscription');
+// });
+// Route::post('/inscription', function () {
+//     return 'Le Formulaire est bien reçu !';
+// });
+// // Route::post('/inscription', function () {
+// //     return 'Votre email est ' . $_POST['email'];
+// // });
+// Route::post('/inscription', function () {
+//     return 'Votre email est ' . request('email');
+// });
