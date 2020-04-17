@@ -30,3 +30,6 @@ Route::post('/edit/user/', 'UserController@update')->name('user.update');
 Route::get('/edit/password/user/', 'UserController@passwordEdit')->name('password.edit');
 
 Route::post('/edit/password/user/', 'UserController@passwordUpdate')->name('password.update'); 
+
+Route::get('/annonces', 'AdsController@create')->name('ad.create');
+Route::post('/annonces/create', 'AdsController@store')->name('ad.store');
