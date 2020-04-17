@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,22 +17,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/', 'IndexController@showIndex');
-Route::get('/', 'InscriptionController@formulaire');
-Route::post('/inscription', 'InscriptionController@traitement');
-Route::get('/', 'ConnexionController@formulaire');
-Route::post('/connexion', 'ConnexionController@traitement');
 
+// Route::get('/', 'IndexController@showIndex');
 
-// Route::get('/inscription', function () {
-//     return view('inscription');
-// });
-// Route::post('/inscription', function () {
-//     return 'Le Formulaire est bien reçu !';
-// });
-// // Route::post('/inscription', function () {
-// //     return 'Votre email est ' . $_POST['email'];
-// // });
-// Route::post('/inscription', function () {
-//     return 'Votre email est ' . request('email');
-// });
+Auth::routes(['verify' => true]);
+
+Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');;
+
+Route::get('/edit/user/', 'UserController@edit')->name('user.edit');
+Route::post('/edit/user/', 'UserController@update')->name('user.update'); 
+
+Route::get('/edit/password/user/', 'UserController@passwordEdit')->name('password.edit');
+
+Route::post('/edit/password/user/', 'UserController@passwordUpdate')->name('password.update'); 
