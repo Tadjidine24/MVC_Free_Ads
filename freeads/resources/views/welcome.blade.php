@@ -98,3 +98,15 @@
         </div>
     </body>
 </html>
+
+@extends('layouts.app')
+@section('content')
+<div class="container">
+    @if(session('success'))
+    <div class="alert alert-success" role="alert">
+        {{session('success')}}
+    </div>
+    @endif 
+    <h1>MoulaCoin</h1>
+</div>
+@endsection

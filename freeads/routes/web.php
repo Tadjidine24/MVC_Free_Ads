@@ -31,5 +31,7 @@ Route::get('/edit/password/user/', 'UserController@passwordEdit')->name('passwor
 
 Route::post('/edit/password/user/', 'UserController@passwordUpdate')->name('password.update'); 
 
-Route::get('/annonces', 'AdsController@create')->name('ad.create');
-Route::post('/annonces/create', 'AdsController@store')->name('ad.store');
+Route::get('/annonce', 'AdController@create')->name('ad.create');
+Route::post('/annonce/create', 'AdController@store')->name('ad.store');
+Route::get('/annonces', 'AdController@showListe')->name('ad.showListe');
+Route::post('/search', 'AdController@search')->name('ad.search');           
